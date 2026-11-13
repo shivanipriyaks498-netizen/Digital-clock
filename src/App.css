@@ -1,0 +1,240 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.vault-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  background:
+    radial-gradient(circle, #48321d, #1c120c 75%);
+  color: #e8c88c;
+  font-family: 'Playfair Display', serif;
+}
+
+.vault-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 35px 28px;
+  text-align: center;
+  background: linear-gradient(145deg, #302116, #160e09);
+  border: 3px solid #a77b39;
+  border-radius: 18px;
+  box-shadow:
+    0 0 25px #000,
+    inset 0 0 25px #6c4822;
+}
+
+.brand {
+  font-family: 'Cinzel', serif;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #e5bd73;
+}
+
+.brand span {
+  color: #a77b39;
+  margin: 0 5px;
+}
+
+.subtitle {
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: #b18a52;
+  margin-top: 10px;
+}
+
+.clock {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  margin-top: 25px;
+  color: #f5d69a;
+  text-shadow: 0 0 12px #c58b35;
+}
+
+.date {
+  color: #a98c63;
+  font-size: 13px;
+}
+
+.hourglass {
+  width: 110px;
+  height: 150px;
+  margin: 30px auto;
+  position: relative;
+  transition: transform 1s;
+}
+
+.hourglass.flipped {
+  transform: rotate(180deg);
+}
+
+.glass {
+  position: relative;
+  width: 75px;
+  height: 135px;
+  margin: auto;
+  overflow: hidden;
+  border-left: 4px solid #d8b77b;
+  border-right: 4px solid #d8b77b;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.glass::before,
+.glass::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  border: 3px solid #e5c48c;
+  border-radius: 50%;
+}
+
+.glass::before {
+  top: -34%;
+}
+
+.glass::after {
+  bottom: -34%;
+}
+
+.top-sand {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  width: 55px;
+  height: 55px;
+  background: #c18a3c;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  animation: sand-fall 10s linear infinite;
+}
+
+.falling-sand {
+  position: absolute;
+  top: 65px;
+  left: 34px;
+  width: 3px;
+  height: 45px;
+  background: #e3b75e;
+  box-shadow: 0 0 7px #e3b75e;
+  animation: flow 1s linear infinite;
+}
+
+.bottom-sand {
+  position: absolute;
+  bottom: 4px;
+  left: 8px;
+  width: 55px;
+  height: 35px;
+  background: #c18a3c;
+  clip-path: polygon(0 100%, 100% 100%, 50% 0);
+  animation: collect 10s linear infinite;
+}
+
+@keyframes sand-fall {
+  0%, 100% { height: 55px; }
+  90% { height: 5px; }
+}
+
+@keyframes collect {
+  0% { height: 5px; }
+  90%, 100% { height: 45px; }
+}
+
+@keyframes flow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 19px;
+  letter-spacing: 2px;
+  color: #e5bd73;
+}
+
+.description {
+  color: #a98c63;
+  font-size: 13px;
+}
+
+.pin-display {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px 0;
+  font-size: 25px;
+  color: #e8bd70;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 270px;
+  margin: 0 auto 25px;
+}
+
+.key {
+  height: 52px;
+  border: 1px solid #a77b39;
+  border-radius: 8px;
+  background: #382718;
+  color: #f1d49a;
+  font-family: 'Cinzel', serif;
+  font-size: 19px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.key:hover {
+  background: #a77b39;
+  color: #1c120c;
+  transform: scale(1.06);
+}
+
+.unlock-button {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #e3bd75;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #8a5d27, #c69a53);
+  color: #1c120c;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.unlock-button:hover {
+  box-shadow: 0 0 18px #d9a74f;
+  transform: translateY(-2px);
+}
+
+.message {
+  min-height: 20px;
+  margin-top: 18px;
+  color: #a9cf88;
+  font-size: 13px;
+}
+
+.message.error {
+  color: #ef8585;
+}
+
+.footer {
+  border-top: 1px solid #72532f;
+  margin-top: 25px;
+  padding-top: 18px;
+  color: #99764a;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
